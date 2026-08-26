@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Kickback</title>
+    <meta name="description" content="How the Kickback browser extension handles your data." />
+    <!--
+      No analytics, no tracking, no external scripts, no external fonts.
+      Everything this page needs is in this file.
+    -->
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #101014;
+        --surface: #17171d;
+        --text: #efeff1;
+        --dim: #a6a6b0;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #ff8452;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 48px 24px 96px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main { max-width: 46rem; margin: 0 auto; }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        color: var(--dim);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .back:hover { color: var(--text); }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        margin: 40px 0 12px;
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
+      }
+      h3 {
+        margin: 28px 0 10px;
+        font-size: 1.05rem;
+        color: var(--dim);
+      }
+
+      p { margin: 0 0 16px; }
+      ul, ol { margin: 0 0 16px; padding-left: 1.4em; }
+      li { margin-bottom: 8px; }
+
+      strong { color: #fff; }
+
+      code {
+        padding: 1px 5px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.08);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.88em;
+      }
+
+      a { color: var(--accent); }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 3px;
+      }
+
+      hr {
+        margin: 36px 0;
+        border: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      /* Wide tables scroll inside themselves rather than the page. */
+      .table-scroll {
+        margin: 0 0 8px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+
+      /*
+       * Given room, and allowed to scroll.
+       *
+       * Without a minimum the columns squeeze until "Twitch identity (your
+       * Twitch user id, login, display name, avatar URL)" wraps over six lines
+       * and the table is harder to read than the prose it summarises.
+       */
+      table {
+        width: 100%;
+        min-width: 54rem;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      td:first-child, th:first-child { min-width: 11rem; }
+
+      th, td {
+        padding: 9px 12px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+
+      th {
+        color: var(--dim);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      tbody tr:last-child td { border-bottom: 0; }
+
+      .table-note { margin: 0 0 24px; color: #74747f; font-size: 0.8rem; }
+
+      @media (max-width: 640px) {
+        body { padding: 32px 16px 64px; }
+        h1 { font-size: 1.6rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="../../">&larr; Anoteros Labs</a>
+      <h1>Kickback — Privacy Policy</h1>
+      <p><strong>Last updated:</strong> 25 August 2026</p>
+      <p><strong>Applies to:</strong> Kickback browser extension, private beta (v0.4.x)</p>
+      <p>Kickback shows you which of your friends are watching Twitch, and lets you join them. This policy describes exactly what it handles, where that goes, and what it never touches. It describes the software as it is actually built, not as a category of software generally behaves.</p>
+      <p><strong>Kickback does not sell your data, share it with third parties, or use it for advertising of any kind.</strong> There is no advertising in Kickback and no advertising or analytics SDK in it.</p>
+      <hr />
+      <h2>Who runs it</h2>
+      <p>Kickback is an independent project, currently in a small private beta. Contact: <strong>anoteros.dev@gmail.com</strong> — the same address for privacy questions, support, and data deletion requests.</p>
+      <h2>Where your data goes</h2>
+      <p>Two places, and nowhere else:</p>
+      <ol><li><strong>Your own browser</strong>, using Chrome's <code>storage</code> permission (<code>chrome.storage.local</code>).</li><li><strong>Kickback's backend</strong>, hosted on Supabase (<code>*.supabase.co</code>).</li></ol>
+      <p>Kickback also reads <strong>public emote metadata</strong> from 7TV (<code>7tv.io</code>) and displays emote images from <code>cdn.7tv.app</code>, so that chat shows the emotes you already see on Twitch. These requests ask for a channel's public emote set. <strong>No information about you is sent to 7TV</strong> — not your identity, not who your friends are, not what you type.</p>
+      <h2>What Kickback handles</h2>
+      <div class="table-scroll"><table>
+      <thead><tr><th>What</th><th>Stored on your device</th><th>Sent to our backend</th><th>Visible to other users</th><th>Used for analytics</th><th>Retention</th></tr></thead>
+      <tbody>
+      <tr><td><strong>Twitch identity</strong> (your Twitch user id, login, display name, avatar URL)</td><td>session only</td><td>yes</td><td>your display name, avatar and Twitch username are visible to your friends and to people in your groups</td><td>no</td><td>until you ask us to delete your account</td></tr>
+      <tr><td><strong>Kickback account</strong> (user id, friend code)</td><td>session only</td><td>yes</td><td>friend code only if you share it</td><td>no (ids are never event properties)</td><td>same</td></tr>
+      <tr><td><strong>Sign-in session</strong> (Supabase access/refresh tokens)</td><td><strong>yes</strong></td><td>—</td><td>never</td><td>never</td><td>until sign-out or expiry</td></tr>
+      <tr><td><strong>Friendships, friend requests</strong></td><td>no</td><td>yes</td><td>to the people involved</td><td>counts only</td><td>until removed, or account deleted</td></tr>
+      <tr><td><strong>Groups and membership</strong></td><td>no</td><td>yes</td><td>to group members</td><td>counts only</td><td>until you leave, or the group is deleted</td></tr>
+      <tr><td><strong>Presence</strong> (online, and the Twitch channel you are watching)</td><td>no</td><td>yes</td><td>to friends, and to people you share a group with — subject to your visibility setting</td><td>no channel identity beyond the destination of a JOIN</td><td>rows are transient and overwritten; nothing historical is kept</td></tr>
+      <tr><td><strong>Stream-session messages</strong> (the ephemeral chat on a channel you are watching)</td><td>in memory while the panel is open</td><td>yes</td><td>to the people the server authorised at the moment you sent it</td><td><strong>never</strong> — no message body, ever</td><td><strong>deleted after 30 minutes</strong>, and capped in count</td></tr>
+      <tr><td><strong>Group messages</strong> (the chat inside a group you created or joined)</td><td>in memory while the panel is open</td><td>yes</td><td>to the other members of that group</td><td><strong>never</strong> — only a length bucket and whether it contained an emote</td><td>kept until the group is deleted or your account is deleted</td></tr>
+      <tr><td><strong>Reactions and emotes you send</strong></td><td>in memory</td><td>yes</td><td>to the same people</td><td>that a reaction happened, and how many — <strong>never which emote</strong></td><td>about a minute; the server sweeps them</td></tr>
+      <tr><td><strong>Mute</strong></td><td><strong>yes, only on your device</strong></td><td><strong>never</strong></td><td>no</td><td>no</td><td>until you unmute</td></tr>
+      <tr><td><strong>Block</strong></td><td>no</td><td>yes</td><td>never — the other person is never told</td><td>that a block happened, with <strong>no identifiers of either party</strong></td><td>until you unblock</td></tr>
+      <tr><td><strong>Panel position and size</strong></td><td><strong>yes</strong></td><td>never</td><td>no</td><td>no</td><td>until you reset the layout</td></tr>
+      <tr><td><strong>Analytics</strong></td><td>a session id</td><td>yes</td><td>never</td><td>—</td><td>see below</td></tr>
+      <tr><td><strong>JOIN attribution</strong></td><td>a random id, for minutes</td><td>yes</td><td>never</td><td>yes, that is its purpose</td><td>the id is dropped after the window closes</td></tr>
+      <tr><td><strong>Feedback you send</strong></td><td>no</td><td>yes</td><td>never</td><td>only the category</td><td>kept until it has been acted on</td></tr>
+      <tr><td><strong>Diagnostics attached to feedback</strong></td><td>no</td><td>yes</td><td>never</td><td>no</td><td>with the feedback</td></tr>
+      </tbody></table></div>
+      <p class="table-note">Scroll the table sideways to see every column.</p>
+      <h3>Two kinds of chat, with two different lifetimes</h3>
+      <p>The <strong>stream session</strong> that appears when you and your friends are watching the same thing is deliberately temporary: it is swept after thirty minutes and is not a history you can scroll back through.</p>
+      <p><strong>Group chat is not.</strong> A group is a place you made on purpose, so its messages stay until the group is deleted or your account is. If you want a conversation that disappears, use the stream session; if you want one that lasts, use a group.</p>
+      <h3>Your visibility setting</h3>
+      <p>The account panel lets you choose whether friends see your activity, see only that you are online, or see nothing at all. <strong>This is applied when your presence is written, not when somebody reads it</strong> — if you have chosen to hide your activity, the channel is never stored, so there is nothing for anyone to read.</p>
+      <h2>Analytics, specifically</h2>
+      <p>Kickback records how the product is used so we can tell whether it works. It is built so that it <em>cannot</em> carry personal content:</p>
+      <ul><li>Every property is a small fact — a count, a bucket, a true/false, or a short word from a fixed list. <strong>Values are capped at 64 characters and unknown keys are discarded by the server</strong>, so there is no way to attach a message, a search term, a URL, an email address or a token even by mistake.</li><li><strong>Never recorded:</strong> message bodies — from either the stream session or from group chat — which emote you used, what you searched for, your friends' identities, who you blocked or muted, email addresses, friend codes, browsing history, or any Twitch or Supabase token.</li><li><strong>Twitch channel names are recorded</strong> for social events — a friend's activity being shown to you, a JOIN, a shared watch. This is how we can tell whether Kickback actually sends people anywhere. It is a channel, not a URL, and only for channels Kickback itself surfaced or you acted on. <strong>Kickback does not record your browsing generally, on Twitch or anywhere else.</strong></li><li>Events are labelled with the build they came from, so beta data can be deleted separately from anything else.</li></ul>
+      <h2>Feedback, specifically</h2>
+      <p>If you send feedback from the account panel, we receive <strong>what you wrote</strong>, plus a small set of diagnostics assembled by the extension: the Kickback version, the build, your browser name and major version (e.g. "Chrome 141"), which Kickback tab was open, the Twitch channel you were on, how many friends you have, whether a stream session existed, and whether the realtime connection was healthy.</p>
+      <p>That is the complete list, and it is enforced by the server, which rebuilds it field by field and discards anything else. <strong>Feedback never carries tokens, cookies, message contents, what you were typing, or the identities of your friends.</strong> We can see who sent it, so that we can follow up.</p>
+      <h2>What Kickback never does</h2>
+      <ul><li><strong>No advertising, ever</strong>, and no use or transfer of your data for personalised, retargeted or interest-based advertising.</li><li><strong>No selling or sharing</strong> of personal data with third parties.</li><li><strong>No reading of web pages.</strong> Kickback runs on <code>twitch.tv</code> only, and only to place its own panel and read which channel the page is showing. It does not read Twitch chat, scrape the page, or touch any other site.</li><li><strong>No credential handling.</strong> Sign-in goes through Twitch's own OAuth page via Chrome's <code>identity</code> API. Kickback never sees your Twitch password, and the extension contains no client secret.</li><li><strong>No Twitch access token in the page.</strong> Provider tokens stay in the extension's background service worker and are never given to the content script — the part that runs alongside Twitch's own code.</li><li><strong>No remote code.</strong> Everything Kickback executes ships inside the extension package. Nothing is downloaded and run.</li><li><strong>No use or transfer of your data to determine creditworthiness, or for lending purposes.</strong></li><li><strong>No use or transfer of your data for any purpose unrelated to Kickback's single purpose</strong> — showing you which friends are watching Twitch, and letting you join them.</li></ul>
+      <h2>Permissions, and why</h2>
+      <ul><li><strong><code>identity</code></strong> — to sign you in with Twitch.</li><li><strong><code>storage</code></strong> — to keep your session, panel position and mute list on your device.</li><li><strong><code>alarms</code></strong> — to refresh your sign-in session periodically. A Chrome extension service worker is shut down when idle, so this is the only way to schedule that.</li><li><strong><code>notifications</code></strong> — for the optional desktop alert when several friends gather on one channel. You can turn it off in the account panel.</li><li><strong><code>https://*.supabase.co/*</code></strong> — Kickback's own backend.</li><li><strong><code>https://7tv.io/*</code>, <code>https://cdn.7tv.app/*</code></strong> — public emote metadata and images. Nothing about you is sent.</li></ul>
+      <p>Kickback requests <strong>no access to sites other than Twitch</strong>, and cannot read any other page you visit.</p>
+      <h2>Your choices</h2>
+      <ul><li><strong>Hide your activity or go invisible</strong> — account panel, at any time.</li><li><strong>Mute somebody</strong> — local to your device; nothing is sent.</li><li><strong>Block somebody</strong> — removes the friendship, stops all Kickback contact between you, and is never disclosed to them.</li><li><strong>Sign out</strong> — clears the session from your device.</li><li><strong>Delete your account</strong> — email <strong>anoteros.dev@gmail.com</strong>. Deleting your account removes your profile, friendships, requests, group memberships, presence, blocks and feedback. Analytics events are not tied to your name and are removed with your actor record.</li><li><strong>Uninstall</strong> — removes everything Kickback stored on your device. Data on the backend is removed on request as above.</li></ul>
+      <h2>Children</h2>
+      <p>Kickback is not directed at children and follows Twitch's own minimum age requirements. Do not use Kickback if you are not permitted to use Twitch.</p>
+      <h2>Changes</h2>
+      <p>This is a private beta and the product is changing. Material changes to this policy will be reflected here, with the date at the top updated, and told to beta testers directly.</p>
+      <hr />
+      <p><em>Kickback is not affiliated with, endorsed by, or sponsored by Twitch Interactive, Inc. or 7TV. "Twitch" is a trademark of Twitch Interactive, Inc.</em></p>
+    </main>
+  </body>
+</html>
