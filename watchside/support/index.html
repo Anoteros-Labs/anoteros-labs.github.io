@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support — Watchside</title>
+    <meta name="description" content="How to get help with the Watchside browser extension." />
+    <!--
+      No analytics, no tracking, no external scripts, no external fonts.
+      Everything this page needs is in this file.
+    -->
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #101014;
+        --surface: #17171d;
+        --text: #efeff1;
+        --dim: #a6a6b0;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #ff8452;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 48px 24px 96px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      main { max-width: 46rem; margin: 0 auto; }
+
+      .back {
+        display: inline-block;
+        margin-bottom: 28px;
+        color: var(--dim);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .back:hover { color: var(--text); }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        margin: 36px 0 12px;
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
+      }
+
+      p { margin: 0 0 16px; }
+      ul { margin: 0 0 16px; padding-left: 1.4em; }
+      li { margin-bottom: 8px; }
+
+      strong { color: #fff; }
+
+      a { color: var(--accent); }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 3px;
+      }
+
+      .contact {
+        margin: 0 0 16px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+      }
+
+      .contact p { margin: 0; }
+
+      .email {
+        font-size: 1.05rem;
+        font-weight: 600;
+      }
+
+      footer {
+        margin-top: 44px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        color: #74747f;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 640px) {
+        body { padding: 32px 16px 64px; }
+        h1 { font-size: 1.6rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="../../">&larr; Anoteros Labs</a>
+
+      <h1>Watchside Support</h1>
+
+      <p>
+        Watchside is a browser extension that shows you which of your friends are
+        watching on Twitch, and lets you join them. It is currently in a small
+        private beta.
+      </p>
+
+      <h2>Get in touch</h2>
+
+      <p>Email us about anything to do with Watchside:</p>
+
+      <ul>
+        <li>help using it, or something that is not working</li>
+        <li>bug reports</li>
+        <li>questions about how it works</li>
+        <li>privacy questions and data requests</li>
+        <li>deleting your account and the data attached to it</li>
+      </ul>
+
+      <div class="contact">
+        <p class="email">
+          <a href="mailto:anoteros.dev@gmail.com">anoteros.dev@gmail.com</a>
+        </p>
+      </div>
+
+      <h2>Feedback from inside Watchside</h2>
+
+      <p>
+        You can also send feedback without leaving Twitch. Open the Watchside
+        panel, click your avatar in the top right to open the account panel, and
+        choose <strong>Feedback</strong>. Pick a category — Bug, Confusing, Idea
+        or Other — write what happened, and send it.
+      </p>
+
+      <p>
+        Feedback sent that way reaches us with a small amount of technical
+        context about your Watchside session, which usually saves a round of
+        questions. What that context contains is listed in full in the
+        <a href="../privacy/">Privacy Policy</a>.
+      </p>
+
+      <footer>
+        <p>
+          Watchside is not affiliated with, endorsed by, or sponsored by Twitch
+          Interactive, Inc.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

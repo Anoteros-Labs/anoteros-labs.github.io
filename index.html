@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Anoteros Labs</title>
-    <meta name="description" content="Anoteros Labs — the developer identity behind Kickback." />
+    <meta name="description" content="Anoteros Labs — the developer identity behind Watchside." />
     <!--
       No analytics, no tracking, no external scripts, no external fonts.
       Everything this page needs is in this file.
@@ -12,12 +12,12 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #101014;
-        --surface: #17171d;
-        --text: #efeff1;
-        --dim: #a6a6b0;
-        --line: rgba(255, 255, 255, 0.1);
-        --accent: #ff8452;
+        --bg: #0F172A;
+        --surface: #16203a;
+        --text: #f8fafc;
+        --dim: #94a3b8;
+        --line: #27334d;
+        --accent: #FF8A00;
       }
 
       * { box-sizing: border-box; }
@@ -53,7 +53,7 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #74747f;
+        color: #64748b;
       }
 
       .card {
@@ -63,10 +63,21 @@
         background: var(--surface);
       }
 
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+
+      .card-head h3 {
+        margin: 0;
+      }
+
       .card h3 {
         margin: 0 0 4px;
         font-size: 1.05rem;
-        background: linear-gradient(100deg, #ff8452, #ff4f8b);
+        background: linear-gradient(100deg, #FF8A00, #6366F1);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -98,7 +109,7 @@
         margin-top: 44px;
         padding-top: 20px;
         border-top: 1px solid var(--line);
-        color: #74747f;
+        color: #64748b;
         font-size: 0.85rem;
       }
 
@@ -112,27 +123,40 @@
   <body>
     <main>
       <h1>Anoteros Labs</h1>
-      <p class="tagline">The developer identity behind Kickback.</p>
+      <p class="tagline">The developer identity behind Watchside.</p>
 
       <h2>Projects</h2>
 
       <div class="card">
-        <h3>Kickback</h3>
+        <div class="card-head">
+          <!-- The Watchside mark, inline: this page fetches nothing. -->
+          <svg viewBox="0 0 128 128" width="34" height="34" role="img" aria-label="Watchside">
+            <rect width="128" height="128" rx="28" fill="#0F172A" />
+            <g fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M27 44 L45 92" stroke="#FF8A00" />
+              <path d="M45 92 L64 56 L83 92" stroke="#FFFFFF" />
+              <path d="M83 92 L101 44" stroke="#6366F1" />
+            </g>
+            <circle cx="27" cy="26" r="11" fill="#FF8A00" />
+            <circle cx="101" cy="26" r="11" fill="#6366F1" />
+          </svg>
+          <h3>Watchside</h3>
+        </div>
         <p>
           A browser extension that shows you which of your friends are watching
           on Twitch, and lets you join them. Currently in a small private beta
           and not yet publicly available.
         </p>
         <ul>
-          <li><a href="./kickback/support/">Support</a></li>
-          <li><a href="./kickback/privacy/">Privacy Policy</a></li>
+          <li><a href="./watchside/support/">Support</a></li>
+          <li><a href="./watchside/privacy/">Privacy Policy</a></li>
         </ul>
       </div>
 
       <footer>
         <p>Contact: <a href="mailto:anoteros.dev@gmail.com">anoteros.dev@gmail.com</a></p>
         <p>
-          Kickback is not affiliated with, endorsed by, or sponsored by Twitch
+          Watchside is not affiliated with, endorsed by, or sponsored by Twitch
           Interactive, Inc.
         </p>
       </footer>
