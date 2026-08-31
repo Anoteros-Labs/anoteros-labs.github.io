@@ -139,7 +139,7 @@
   </head>
   <body>
     <main>
-      <a class="back" href="../../">&larr; Anoteros Labs</a>
+      <a class="back" href="../">&larr; Watchside</a>
       <h1>Watchside — Privacy Policy</h1>
       <p><strong>Last updated:</strong> 25 August 2026</p>
       <p><strong>Applies to:</strong> Watchside browser extension, private beta (v0.4.x)</p>
@@ -159,6 +159,7 @@
       <tr><td><strong>Twitch identity</strong> (your Twitch user id, login, display name, avatar URL)</td><td>session only</td><td>yes</td><td>your display name, avatar and Twitch username are visible to your friends and to people in your groups</td><td>no</td><td>until you ask us to delete your account</td></tr>
       <tr><td><strong>Watchside account</strong> (user id, friend code)</td><td>session only</td><td>yes</td><td>friend code only if you share it</td><td>no (ids are never event properties)</td><td>same</td></tr>
       <tr><td><strong>Sign-in session</strong> (Supabase access/refresh tokens)</td><td><strong>yes</strong></td><td>—</td><td>never</td><td>never</td><td>until sign-out or expiry</td></tr>
+      <tr><td><strong>Twitch authorisation</strong> (the credential Twitch issues when you connect Watchside)</td><td><strong>never</strong> — removed from your browser</td><td><strong>yes, encrypted</strong></td><td>never</td><td>never</td><td>until you disconnect Watchside on Twitch, or delete your account</td></tr>
       <tr><td><strong>Friendships, friend requests</strong></td><td>no</td><td>yes</td><td>to the people involved</td><td>counts only</td><td>until removed, or account deleted</td></tr>
       <tr><td><strong>Groups and membership</strong></td><td>no</td><td>yes</td><td>to group members</td><td>counts only</td><td>until you leave, or the group is deleted</td></tr>
       <tr><td><strong>Presence</strong> (online, and the Twitch channel you are watching)</td><td>no</td><td>yes</td><td>to friends, and to people you share a group with — subject to your visibility setting</td><td>no channel identity beyond the destination of a JOIN</td><td>rows are transient and overwritten; nothing historical is kept</td></tr>
@@ -175,6 +176,14 @@
       <tr><td><strong>Diagnostics attached to feedback</strong></td><td>no</td><td>yes</td><td>never</td><td>no</td><td>with the feedback</td></tr>
       </tbody></table></div>
       <p class="table-note">Scroll the table sideways to see every column.</p>
+      <h3>The Twitch authorisation Watchside stores</h3>
+      <p>When you sign in, Twitch issues Watchside a credential that represents your connection. Watchside stores it <strong>on its server, encrypted</strong>, and removes it from your browser entirely.</p>
+      <p><strong>Why it is kept.</strong> Watchside is trying to answer one question honestly: does seeing where your friends are watching actually lead you to creators? Answering it means asking Twitch a question at the moment a friend leads you somewhere, and Twitch only hands over the means to ask once, when you sign in. Keeping it is the only way to ask later.</p>
+      <p><strong>How it is protected.</strong></p>
+      <ul><li>It is encrypted before it is written down, with a key that is <strong>not</strong> stored in the database. Someone with a complete copy of the database still cannot read it.</li><li>It is never sent to another user, never shown in the extension, and never written into analytics or logs.</li><li>It never comes back to your browser. Not even to you.</li></ul>
+      <p><strong>How it ends.</strong></p>
+      <ul><li><strong>Disconnect Watchside on Twitch</strong> and the credential is destroyed, along with anything Watchside worked out about your relationship with creators. Your Watchside account and friends are untouched.</li><li><strong>Delete your Watchside account</strong> and it goes with everything else.</li><li><strong>Signing out does not remove it</strong> — signing out ends a session, it does not withdraw a permission.</li></ul>
+      <p><strong>What Watchside is not doing with it yet.</strong> Nothing is read from it and nothing is measured with it. The measurement it exists for is not built. Watchside asks Twitch for no permission beyond the basic one you already granted at sign-in, so there is nothing more it could read even if it tried. This page will say plainly what changed, before anything does.</p>
       <h3>Two kinds of chat, with two different lifetimes</h3>
       <p>The <strong>stream session</strong> that appears when you and your friends are watching the same thing is deliberately temporary: it is swept after thirty minutes and is not a history you can scroll back through.</p>
       <p><strong>Group chat is not.</strong> A group is a place you made on purpose, so its messages stay until the group is deleted or your account is. If you want a conversation that disappears, use the stream session; if you want one that lasts, use a group.</p>
@@ -222,7 +231,11 @@
       <p>Watchside collects no device information on any browser, and no browser information on Firefox.</p>
       <p>On <strong>Chrome</strong>, those three diagnostic signals are still recorded. They carry a call site and an error code from fixed lists — never a message, a URL, an exception text or a stack trace — exactly as the analytics section describes.</p>
       <h2>Your choices</h2>
-      <ul><li><strong>Hide your activity or go invisible</strong> — account panel, at any time.</li><li><strong>Mute somebody</strong> — local to your device; nothing is sent.</li><li><strong>Block somebody</strong> — removes the friendship, stops all Watchside contact between you, and is never disclosed to them.</li><li><strong>Sign out</strong> — clears the session from your device.</li><li><strong>Delete your account</strong> — email <strong>anoteros.dev@gmail.com</strong>. Deleting your account removes your profile, friendships, requests, group memberships, presence, blocks and feedback. Analytics events are not tied to your name and are removed with your actor record.</li><li><strong>Uninstall</strong> — removes everything Watchside stored on your device. Data on the backend is removed on request as above.</li></ul>
+      <ul><li><strong>Hide your activity or go invisible</strong> — account panel, at any time.</li><li><strong>Mute somebody</strong> — local to your device; nothing is sent.</li><li><strong>Block somebody</strong> — removes the friendship, stops all Watchside contact between you, and is never disclosed to them.</li><li><strong>Sign out</strong> — clears the session from your device. It deletes nothing on the server: your account, your friends and your history are all still there when you sign back in.</li><li><strong>Delete your account</strong> — in the account panel, whenever you want. No email, no waiting on us.</li></ul>
+      <p>It asks you to type your Twitch username first, because it cannot be undone. Deleting removes your profile, friendships, friend requests, group memberships, group and stream messages, presence, blocks, invites, referrals, badges, feedback and your analytics history. Nothing is kept back.</p>
+      <p>Two things worth knowing before you do it. <strong>Groups you created are deleted for everyone in them</strong> — a group cannot outlive its owner, so tell the others first if that matters. And messages you sent disappear from conversations other people can still see, which may leave gaps in them.</p>
+      <p>It does not touch your Twitch account, and it does not unfollow anybody.</p>
+      <ul><li><strong>Uninstall</strong> — removes everything Watchside stored on your device. Data on the backend is removed on request as above.</li></ul>
       <h2>Children</h2>
       <p>Watchside is not directed at children and follows Twitch's own minimum age requirements. Do not use Watchside if you are not permitted to use Twitch.</p>
       <h2>Changes</h2>
