@@ -12,12 +12,12 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #101014;
-        --surface: #17171d;
-        --text: #efeff1;
-        --dim: #a6a6b0;
+        --bg: #0b0b0e;
+        --surface: #131318;
+        --text: #f5f5f7;
+        --dim: #9c9ca8;
         --line: rgba(255, 255, 255, 0.1);
-        --accent: #ff8452;
+        --accent: #a855f7;
       }
 
       * { box-sizing: border-box; }
@@ -129,7 +129,7 @@
 
       tbody tr:last-child td { border-bottom: 0; }
 
-      .table-note { margin: 0 0 24px; color: #74747f; font-size: 0.8rem; }
+      .table-note { margin: 0 0 24px; color: #6b6b78; font-size: 0.8rem; }
 
       @media (max-width: 640px) {
         body { padding: 32px 16px 64px; }
@@ -168,6 +168,7 @@
       <tr><td><strong>Mute</strong></td><td><strong>yes, only on your device</strong></td><td><strong>never</strong></td><td>no</td><td>no</td><td>until you unmute</td></tr>
       <tr><td><strong>Block</strong></td><td>no</td><td>yes</td><td>never — the other person is never told</td><td>that a block happened, with <strong>no identifiers of either party</strong></td><td>until you unblock</td></tr>
       <tr><td><strong>Panel position and size</strong></td><td><strong>yes</strong></td><td>never</td><td>no</td><td>no</td><td>until you reset the layout</td></tr>
+      <tr><td><strong>How long you watched a channel</strong></td><td>the currently open interval only</td><td>yes</td><td>never</td><td>yes — see "Viewing time" below</td><td>the open interval is deleted when it ends; the recorded duration is kept as analytics</td></tr>
       <tr><td><strong>Analytics</strong></td><td>a session id</td><td>yes</td><td>never</td><td>—</td><td>see below</td></tr>
       <tr><td><strong>JOIN attribution</strong></td><td>a random id, for minutes</td><td>yes</td><td>never</td><td>yes, that is its purpose</td><td>the id is dropped after the window closes</td></tr>
       <tr><td><strong>Feedback you send</strong></td><td>no</td><td>yes</td><td>never</td><td>only the category</td><td>kept until it has been acted on</td></tr>
@@ -181,7 +182,17 @@
       <p>The account panel lets you choose whether friends see your activity, see only that you are online, or see nothing at all. <strong>This is applied when your presence is written, not when somebody reads it</strong> — if you have chosen to hide your activity, the channel is never stored, so there is nothing for anyone to read.</p>
       <h2>Analytics, specifically</h2>
       <p>Watchside records how the product is used so we can tell whether it works. It is built so that it <em>cannot</em> carry personal content:</p>
-      <ul><li>Every property is a small fact — a count, a bucket, a true/false, or a short word from a fixed list. <strong>Values are capped at 64 characters and unknown keys are discarded by the server</strong>, so there is no way to attach a message, a search term, a URL, an email address or a token even by mistake.</li><li><strong>Never recorded:</strong> message bodies — from either the stream session or from group chat — which emote you used, what you searched for, your friends' identities, who you blocked or muted, email addresses, friend codes, browsing history, or any Twitch or Supabase token.</li><li><strong>Twitch channel names are recorded</strong> for social events — a friend's activity being shown to you, a JOIN, a shared watch. This is how we can tell whether Watchside actually sends people anywhere. It is a channel, not a URL, and only for channels Watchside itself surfaced or you acted on. <strong>Watchside does not record your browsing generally, on Twitch or anywhere else.</strong></li><li><strong>On Firefox, diagnostic events are not recorded at all.</strong> See "Technical and interaction data" below.</li><li>Events are labelled with the build they came from, so beta data can be deleted separately from anything else.</li></ul>
+      <ul><li>Every property is a small fact — a count, a bucket, a true/false, or a short word from a fixed list. <strong>Values are capped at 64 characters and unknown keys are discarded by the server</strong>, so there is no way to attach a message, a search term, a URL, an email address or a token even by mistake.</li><li><strong>Never recorded:</strong> message bodies — from either the stream session or from group chat — which emote you used, what you searched for, your friends' identities, who you blocked or muted, email addresses, friend codes, browsing history, or any Twitch or Supabase token.</li><li><strong>Twitch channel names are recorded</strong> for social events — a friend's activity being shown to you, a JOIN, a shared watch. This is how we can tell whether Watchside actually sends people anywhere. It is a channel, not a URL, and only for channels Watchside itself surfaced or you acted on. <strong>Watchside does not record your browsing generally, on Twitch or anywhere else.</strong></li><li><strong>Watchside records how long you watch a Twitch channel.</strong> This is described in full under "Viewing time" below.</li><li><strong>On Firefox, diagnostic events are not recorded at all.</strong> See "Technical and interaction data" below.</li><li>Events are labelled with the build they came from, so beta data can be deleted separately from anything else.</li></ul>
+      <h3>Viewing time</h3>
+      <p><strong>Watchside records how long you watch a live Twitch channel.</strong> When you are watching a channel, Watchside measures that stretch of time and records its length, together with the channel name.</p>
+      <p>We are stating that plainly because it is a real change in what Watchside keeps. Until now Watchside recorded how long you watched <em>with a friend</em>; it now also records how long you watched.</p>
+      <p><strong>Why.</strong> Watchside's purpose is to bring people to streams together. We cannot tell whether that works without knowing whether it leads to people actually watching — and whether they come back to a streamer they met through Watchside. Without this, we can only measure the part of your viewing that happened to involve a friend, which tells us nothing about how much difference Watchside made.</p>
+      <p><strong>What is recorded for each stretch of viewing:</strong></p>
+      <ul><li>how long it lasted</li><li>which channel</li><li>whether you got there by pressing JOIN in Watchside</li><li>whether a friend was watching with you at any point during it</li><li>why it ended — you moved to another stream, you left, you signed out, or Watchside stopped being able to observe</li></ul>
+      <p><strong>What is not recorded:</strong></p>
+      <ul><li><strong>Not the video, the title, the category, the viewer count, or anything else about the stream.</strong> The channel name and a duration are the whole of it.</li><li><strong>Not what you watch generally.</strong> Only channels on Twitch, and only while Watchside is running and you are signed in.</li><li><strong>Not tabs you are not looking at.</strong> Only the stream you have in front of you accrues time. Three streams open in background tabs record nothing.</li><li><strong>Not offline channels.</strong> Sitting on a channel with no stream running records no viewing time.</li><li><strong>Not time we did not observe.</strong> If your computer sleeps or the browser stops Watchside in the background, the interval is closed at the last moment we could actually see, and the gap is never counted as viewing.</li></ul>
+      <p><strong>What is stored on your device:</strong> only the stretch of viewing currently in progress, and it is deleted as soon as it ends. If you are not watching anything, there is nothing about your viewing stored on your device at all.</p>
+      <p><strong>This is not shared with anyone.</strong> It is not visible to your friends, it is never sold or shared with third parties, and it is not used for advertising.</p>
       <h2>Feedback, specifically</h2>
       <p>If you send feedback from the account panel, we receive <strong>what you wrote</strong>, plus a small set of diagnostics assembled by the extension: the Watchside version, the build, which Watchside tab was open, the Twitch channel you were on, how many friends you have, whether a stream session existed, and whether the realtime connection was healthy. On Chrome it also includes your browser name and major version (e.g. "Chrome 141"); <strong>on Firefox that field is omitted</strong>, because it is browser information and Watchside collects none of that on Firefox.</p>
       <p>That is the complete list, and it is enforced by the server, which rebuilds it field by field and discards anything else. <strong>Feedback never carries tokens, cookies, message contents, what you were typing, or the identities of your friends.</strong> We can see who sent it, so that we can follow up.</p>
