@@ -4,20 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Support — Watchside</title>
-    <meta name="description" content="How to get help with the Watchside browser extension." />
+    <meta name="description" content="Help with Watchside, including when the extension will not open." />
     <!--
-      No analytics, no tracking, no external scripts, no external fonts.
-      Everything this page needs is in this file.
+      No analytics, no tracking, no external scripts, no external fonts, no
+      cookies. Everything each page needs is in that page. The domain existing
+      is not a reason to start measuring visitors.
     -->
     <style>
       :root {
         color-scheme: dark;
-        --bg: #101014;
-        --surface: #17171d;
-        --text: #efeff1;
-        --dim: #a6a6b0;
-        --line: rgba(255, 255, 255, 0.1);
-        --accent: #ff8452;
+        --bg: #0b0b0e;
+        --surface: #131318;
+        --text: #f5f5f7;
+        --dim: #9c9ca8;
+        --line: #26262f;
+        --accent: #a855f7;
       }
 
       * { box-sizing: border-box; }
@@ -45,17 +46,9 @@
       }
       .back:hover { color: var(--text); }
 
-      h1 {
-        margin: 0 0 8px;
-        font-size: 2rem;
-        letter-spacing: -0.02em;
-      }
-
-      h2 {
-        margin: 36px 0 12px;
-        font-size: 1.3rem;
-        letter-spacing: -0.01em;
-      }
+      h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -0.02em; }
+      h2 { margin: 36px 0 12px; font-size: 1.3rem; letter-spacing: -0.01em; }
+      h3 { margin: 24px 0 8px; font-size: 1.05rem; }
 
       p { margin: 0 0 16px; }
       ul { margin: 0 0 16px; padding-left: 1.4em; }
@@ -70,28 +63,50 @@
         border-radius: 3px;
       }
 
-      .contact {
-        margin: 0 0 16px;
+      .lede { font-size: 1.15rem; color: var(--text); margin-bottom: 28px; }
+      .dim { color: var(--dim); }
+
+      .mark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .mark svg { flex: none; }
+      .wordmark {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .cta {
+        display: inline-block;
+        margin: 8px 0 12px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #1a1a21;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .cta:hover { filter: brightness(1.08); }
+
+      .card {
         padding: 18px 20px;
         border: 1px solid var(--line);
         border-radius: 12px;
         background: var(--surface);
-      }
-
-      .contact p { margin: 0; }
-
-      .email {
-        font-size: 1.05rem;
-        font-weight: 600;
+        margin-bottom: 20px;
       }
 
       footer {
-        margin-top: 44px;
+        margin-top: 56px;
         padding-top: 20px;
         border-top: 1px solid var(--line);
-        color: #74747f;
-        font-size: 0.85rem;
+        color: var(--dim);
+        font-size: 0.9rem;
       }
+      footer a { margin-right: 18px; }
 
       @media (max-width: 640px) {
         body { padding: 32px 16px 64px; }
@@ -101,55 +116,108 @@
   </head>
   <body>
     <main>
-      <a class="back" href="../../">&larr; Anoteros Labs</a>
+      <a class="back" href="/watchside/">&larr; Watchside</a>
 
       <h1>Watchside Support</h1>
+      <p class="lede">
+        This page works whether or not Watchside is running, which is the point
+        of it — if the panel will not open, you can still get help here.
+      </p>
 
+      <h2>The panel does not appear on Twitch</h2>
+      <ul>
+        <li>
+          Watchside only runs on <strong>twitch.tv</strong>. It will not appear
+          anywhere else, including on other video sites.
+        </li>
+        <li>
+          Reload the Twitch tab. The panel is added when the page loads, so a tab
+          opened before Watchside was installed will not have it.
+        </li>
+        <li>
+          Check the extension is enabled in your browser's extensions page, and
+          that it is not paused or blocked for twitch.tv.
+        </li>
+        <li>
+          If you minimised it, look for the small round Watchside mark near the
+          top-left of the page — click it to open the panel again.
+        </li>
+      </ul>
+
+      <h2>Signing in with Twitch is not working</h2>
+      <ul>
+        <li>
+          Sign-in opens Twitch's own page in a separate window. If you use a
+          pop-up blocker it may have been suppressed — allow it and try again.
+        </li>
+        <li>
+          If you closed that window before finishing, nothing was saved. Press
+          <strong>Continue with Twitch</strong> again.
+        </li>
+        <li>
+          If Watchside says it cannot reach its server, that is usually
+          temporary. Reload the Twitch tab after a minute.
+        </li>
+      </ul>
+
+      <h2>Watchside looks out of date, or behaves oddly</h2>
+      <ul>
+        <li>
+          Your browser updates extensions on its own schedule. The version you
+          are running is at the bottom of the account panel — click your avatar
+          in the Watchside panel to see it.
+        </li>
+        <li>
+          Reloading the extension from your browser's extensions page clears most
+          stale-state problems.
+        </li>
+      </ul>
+
+      <h2>Notifications are not arriving</h2>
+      <ul>
+        <li>
+          Watchside can only send a desktop notification if your browser has
+          given it permission. That permission belongs to the browser, not to
+          Watchside.
+        </li>
+        <li>
+          If you refused it, Watchside cannot ask again — you would need to allow
+          notifications for the extension in your browser's own settings.
+        </li>
+        <li>
+          There is also a switch in the Watchside account panel. Both have to be
+          on for a notification to arrive.
+        </li>
+      </ul>
+
+      <h2>Privacy, and deleting your account</h2>
       <p>
-        Watchside is a browser extension that shows you which of your friends are
-        watching on Twitch, and lets you join them. It is currently in a small
-        private beta.
+        You can delete your Watchside account from the account panel: click your
+        avatar, then <strong>Delete account</strong>. It asks you to type your
+        Twitch username first, because it cannot be undone.
+      </p>
+      <p>
+        Disconnecting Watchside on Twitch removes what Watchside worked out about
+        your relationship with creators; signing out removes neither that nor
+        your account. The <a href="/watchside/privacy">privacy policy</a> explains all
+        three.
       </p>
 
       <h2>Get in touch</h2>
-
-      <p>Email us about anything to do with Watchside:</p>
-
-      <ul>
-        <li>help using it, or something that is not working</li>
-        <li>bug reports</li>
-        <li>questions about how it works</li>
-        <li>privacy questions and data requests</li>
-        <li>deleting your account and the data attached to it</li>
-      </ul>
-
-      <div class="contact">
-        <p class="email">
-          <a href="mailto:anoteros.dev@gmail.com">anoteros.dev@gmail.com</a>
-        </p>
-      </div>
-
-      <h2>Feedback from inside Watchside</h2>
-
       <p>
-        You can also send feedback without leaving Twitch. Open the Watchside
-        panel, click your avatar in the top right to open the account panel, and
-        choose <strong>Feedback</strong>. Pick a category — Bug, Confusing, Idea
-        or Other — write what happened, and send it.
+        Email <a href="mailto:anoteros.dev@gmail.com">anoteros.dev@gmail.com</a>.
+        Telling us your browser and roughly when the problem happened helps a
+        lot.
       </p>
-
-      <p>
-        Feedback sent that way reaches us with a small amount of technical
-        context about your Watchside session, which usually saves a round of
-        questions. What that context contains is listed in full in the
-        <a href="../privacy/">Privacy Policy</a>.
+      <p class="dim">
+        If Watchside <em>is</em> working, there is a Feedback form in the account
+        panel that attaches the version and a little diagnostic context for you.
+        It is the faster route when it is available.
       </p>
 
       <footer>
-        <p>
-          Watchside is not affiliated with, endorsed by, or sponsored by Twitch
-          Interactive, Inc.
-        </p>
+        <a href="/watchside/">Watchside</a>
+        <a href="/watchside/privacy">Privacy</a>
       </footer>
     </main>
   </body>
